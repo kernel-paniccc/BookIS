@@ -20,7 +20,7 @@ async def login():
             user = result.scalars().first()
             if user is not None and str(user.password) == str(password):
                 login_user(user)
-                return redirect("/mkgtjtbjnj")
+                return redirect("/MyBook")
             else:
                 flash("некорректные данные", category='error')
     except Exception as e:
