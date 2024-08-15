@@ -3,6 +3,7 @@ from aiogram.types import Message
 from aiogram.filters import CommandStart
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
+from aiogram.enums import ParseMode
 
 from app.database.models import async_session
 from app.database.models import User
@@ -25,7 +26,7 @@ router = Router()
 
 @router.message(CommandStart())
 async def start(message: Message):
-    await message.reply("Привет, это бот для входа в BookIs ! Список команд: /help", reply_markup=main)
+    await message.reply("Привет, это бот для входа в BookIs !", reply_markup=main)
 
 
 @router.message(F.text.lower() == 'регистрация')
@@ -86,7 +87,13 @@ async def start(message: Message):
     tg_id = message.from_user.id
     async with async_session() as session:
         user = await session.scalar(select(User).where(User.tg_id == tg_id))
-        await message.answer(f'Логин: {tg_id}\nПароль: {user.password}\nВход в приложение', reply_markup=webapp)
+        await message.answer(f'Логин: <code>{tg_id}</code>\n'
+                             f'Пароль: <tg-spoiler>{user.password}</tg-spoiler>\n'
+                             f'Вход в приложение',
+                             reply_markup=webapp,
+                             parse_mode=ParseMode.HTML)
 
+
+@router.message()
 async def echo(messange: Message):
     await messange.answer('Я вас не понимаю. Используйте встроенные команды', reply_markup=main)

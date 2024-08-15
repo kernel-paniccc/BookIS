@@ -10,6 +10,8 @@ import asyncio, os
 
 load_dotenv()
 
+
+
 async def main():
     await async_main()
     bot = Bot(token=os.getenv('TOKEN'))
@@ -20,7 +22,7 @@ async def main():
     await dp.start_polling(bot)
 
 def run_flask():
-    app.run(port=8080)
+    app.run(port=5000)
 
 
 if __name__ == '__main__':
