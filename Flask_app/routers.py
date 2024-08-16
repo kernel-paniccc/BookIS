@@ -1,11 +1,13 @@
 from flask import flash, render_template, request, redirect
 
-from flask_login import login_user
+from flask_login import login_user, login_required, logout_user, current_user
 
 from app.database.models import User
 from Flask_app.init import app
 from app.database.models import async_session
 from sqlalchemy import select
+
+import os
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -18,7 +20,7 @@ async def login():
             user = result.scalars().first()
             if user is not None and str(user.password) == str(password):
                 login_user(user)
-                return redirect("/user_page")
+                return redirect("/mkgtjtbjnj")
             else:
                 flash("некорректные данные", category='error')
     except Exception as e:
