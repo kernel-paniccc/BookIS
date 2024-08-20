@@ -23,7 +23,7 @@ class User(Base):
 
     books = relationship("Book", back_populates="user")
 
-class Book(Base, UserMixin):
+class Book(Base):
     __tablename__ = 'books'
 
     id: Mapped[int] = mapped_column(primary_key=True)
