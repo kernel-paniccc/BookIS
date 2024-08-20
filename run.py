@@ -23,8 +23,8 @@ def run_flet():
 
 
 if __name__ == '__main__':
-    flask_thread = Thread(target=run_flet)
-    flask_thread.start()
+    flet_thread = Thread(target=run_flet)
+    flet_thread.start()
 
     #logging.basicConfig(level=logging.INFO)
     try:
