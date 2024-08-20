@@ -91,7 +91,8 @@ async def start(message: Message):
                              f'Пароль: <tg-spoiler>{user.password}</tg-spoiler>\n'
                              f'Вход в приложение',
                              reply_markup=webapp,
-                             parse_mode=ParseMode.HTML)
+                             parse_mode=ParseMode.HTML
+                             )
 
 
 @router.message()

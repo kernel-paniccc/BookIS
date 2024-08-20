@@ -7,9 +7,9 @@ import os
 
 load_dotenv()
 
-# ___config_ngrok___
+# ___config_ngrok___ make ngrok link
 ngrok.set_auth_token(os.getenv('NGROK_AUTHTOKEN'))
-public_url = ngrok.connect(5000).public_url
+public_url = ngrok.connect(8080).public_url
 print(public_url)
 
 
