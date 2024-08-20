@@ -1,1 +1,1 @@
-tg + flask web app
+Aiogram + flet web_app
