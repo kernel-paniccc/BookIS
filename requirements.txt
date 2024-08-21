@@ -1,5 +1,4 @@
 aiogram==3.12.0
-Flask_Login==0.6.3
 flet==0.23.2
 pyngrok==7.2.0
 python-dotenv==1.0.1
